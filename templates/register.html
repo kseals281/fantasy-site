@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>{{ author }}</title>
+</head>
+
+<body>
+  <h1>Hello, World!</h1>
+  <hr>
+  <img
+  src="http://www.buffalo.edu/content/www/brand/identity/university-logo-and-marks/_jcr_content/par/image_13.img.209.auto.png/1460123040155.png"
+  alt="University at Buffalo Logo"
+  width="250"
+  height="200" />
+  <img src="/static/cross-country-icon.jpg"
+  width="250"
+  height="200" />
+  <br>
+  {% if not usernameTaken %}
+  <h2>Please enter a username and password</h2>
+  {% else %}
+  <h2>The username you entered is already in use</h2>
+  {% endif %}
+  <form
+    method="post" id="name">
+    <fieldset>
+      <label>Username:</label>
+      <input type="text" name="username"><br>
+      <label>Password:</label>
+      <input type="text" name="password"><br>
+    </fieldset>
+    <br>
+    <input type="submit" value="OK Send My Data">
+  </form>
+</body>
+
+</html>
