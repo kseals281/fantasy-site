@@ -23,10 +23,10 @@ def create_account():
     hashedPassword = hashlib.sha256(password.encode()).hexdigest()
     new_account = {
       'username': username,
-      'password': password
+      'password': hashedPassword
     }
     accounts.insert_one(new_account).inserted_id
-    return render_template('success.html', user=username, message='register')
+    return render_template('indexpy.html', user=username)
   return render_template('register.html', usernameTaken=False)
 
 def check_for_username(username):
