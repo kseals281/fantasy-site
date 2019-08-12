@@ -8,6 +8,13 @@
 </head>
 
 <body>
+  <div style="background:color:#fff; border:solid 1px #333; float:right; text-align:center; padding:5px;">
+    <i class="fa fa-user"></i>
+    User Profile
+    <br>
+    <a href="/login"><input type="button" value="login"></a>
+    <a href="/register"><input type="button" value="register"></a>
+  </div>
   {% if name %}
   <h1>Welcome to fantasy Cross Country {{ name }}!</h1>
   {% else %}
@@ -23,6 +30,7 @@
   width="250"
   height="200" />
   <br>
+
 </body>
 
 </html>
