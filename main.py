@@ -65,8 +65,8 @@ def verify_login(username, password):
   accounts = db.accounts
 
   account_to_verify = accounts.find_one({'username': username})
-
-  if account_to_verify['password'] == password:
+  hashed_password = hashlib.sha256(password.encode()).hexdigest()
+  if account_to_verify['password'] == hashed_password:
     return True
   return False
 
