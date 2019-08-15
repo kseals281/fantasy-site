@@ -11,7 +11,7 @@
   <div style="background:color:#fff; border:solid 1px #333; float:right; text-align:center; padding:5px;">
     <i class="fa fa-user"></i>
     {% if name %}
-    <a href="/profile">{{ name }} Profile</a>
+    <a href="/profile" type="button">{{ name }} Profile</a>
     {% else %}
     <a href="/login"><input type="button" value="login"></a>
     <a href="/register"><input type="button" value="register"></a>
@@ -28,6 +28,22 @@
   width="250"
   height="200" />
   <br>
+  <h2>Your current racers: </h2>
+  <p>{{ racer1 }}, {{ racer2 }}, {{ racer3 }} </p>
+  <h2> Enter new racers for your team</h2>
+  <form method="post">
+    First Runner: <input type="text" name="racer1"><br>
+    Second Runner: <input type="text" name="racer2"><br>
+    Third Runner: <input type="text" name="racer3"><br>
+    <input type="submit" value="Submit">
+  </form>
+  <h2>All racers running in the current race</h2>
+  {% for runner in runner_list %}
+  <tr>
+    <td padding-right: 30px;>Name: {{ runner['name'] }}</td>
+    <td padding-right: 30px;>Team: {{ runner['team'] }}</td>
+  </tr><br>
+  {% endfor %}
 
 </body>
 
