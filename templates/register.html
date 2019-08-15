@@ -8,7 +8,16 @@
 </head>
 
 <body>
-  <h1>Hello, World!</h1>
+  <div style="background:color:#fff; border:solid 1px #333; float:right; text-align:center; padding:5px;">
+    <i class="fa fa-user"></i>
+    {% if name %}
+    <a href="/profile">{{ name }} Profile</a>
+    {% else %}
+    <a href="/login"><input type="button" value="login"></a>
+    <a href="/register"><input type="button" value="register"></a>
+    {% endif %}
+  </div>
+  <h1>Welcome to fantasy Cross Country!</h1>
   <hr>
   <img
   src="http://www.buffalo.edu/content/www/brand/identity/university-logo-and-marks/_jcr_content/par/image_13.img.209.auto.png/1460123040155.png"
@@ -19,10 +28,15 @@
   width="250"
   height="200" />
   <br>
-  {% if not usernameTaken %}
-  <h2>Please enter a username and password</h2>
-  {% else %}
+  {% if usernameTaken or passwords_dont_match %}
+  {% if usernameTaken %}
   <h2>The username you entered is already in use</h2>
+  {% endif %}
+  {% if passwords_dont_match %}
+  <h2>Your passwords did not match</h2>
+  {% endif %}
+  {% else %}
+  <h2>Please enter a username and password</h2>
   {% endif %}
   <form
     method="post" id="name">
@@ -31,6 +45,8 @@
       <input type="text" name="username"><br>
       <label>Password:</label>
       <input type="text" name="password"><br>
+      <label>Repeat Password:</label>
+      <input type="text" name="repeatpassword"><br>
     </fieldset>
     <br>
     <input type="submit" value="OK Send My Data">

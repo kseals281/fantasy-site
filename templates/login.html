@@ -8,7 +8,16 @@
 </head>
 
 <body>
-  <h1>Hello, World!</h1>
+  <div style="background:color:#fff; border:solid 1px #333; float:right; text-align:center; padding:5px;">
+    <i class="fa fa-user"></i>
+    {% if name %}
+    <a href="/profile">{{ name }} Profile</a>
+    {% else %}
+    <a href="/login"><input type="button" value="login"></a>
+    <a href="/register"><input type="button" value="register"></a>
+    {% endif %}
+  </div>
+  <h1>Welcome to fantasy Cross Country!</h1>
   <hr>
   <img
   src="http://www.buffalo.edu/content/www/brand/identity/university-logo-and-marks/_jcr_content/par/image_13.img.209.auto.png/1460123040155.png"
@@ -22,7 +31,7 @@
   {% if firstattempt %}
   <h2>Please enter your username and password</h2>
   {% else %}
-  <h2>You entered an incorrect password</h2>
+  <h2>You entered an incorrect username or password</h2>
   {% endif %}
   <form
     method="post" id="name">
